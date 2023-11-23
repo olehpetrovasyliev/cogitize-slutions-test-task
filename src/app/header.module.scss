@@ -1,0 +1,22 @@
+.header {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  // gap: -12px;
+}
+
+.navLink {
+  border-radius: 8px 8px 0px 0px;
+  border: 2px solid var(--white-8, rgba(245, 245, 245, 0.08));
+  border-bottom: none;
+  background: #292930;
+  width: 254px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:not(:first-child) {
+    margin-left: -12px;
+  }
+}

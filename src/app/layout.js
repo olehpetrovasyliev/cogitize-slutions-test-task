@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
-import "./globals.css";
+import "./globals.scss";
 import Link from "next/link";
+import styles from "./header.module.scss";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,11 +14,19 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ru">
       <body className={inter.className}>
-        <header className="header">
-          <Link href="/hierarchy">Иерархия</Link>
-          <Link href="/">Должности</Link>
-          <Link href="/staffList">Список персонала</Link>
-          <Link href="/equipmentSets">Наборы экипировки</Link>
+        <header className={styles.header}>
+          <Link href="/hierarchy" className={styles.navLink}>
+            Иерархия
+          </Link>
+          <Link href="/" className={styles.navLink}>
+            Должности
+          </Link>
+          <Link href="/staffList" className={styles.navLink}>
+            Список персонала
+          </Link>
+          <Link href="/equipmentSets" className={styles.navLink}>
+            Наборы экипировки
+          </Link>
         </header>
         {children}
       </body>

@@ -87,9 +87,6 @@ html {
   align-items: center;
   justify-content: center;
 }
-/* html,
-body {
-} */
 
 body {
   border-radius: 8px;
@@ -113,9 +110,17 @@ a {
   }
 }
 
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+}
 main {
   border-radius: 0px 0px 8px 8px;
   border: 2px solid rgba(255, 255, 255, 0.08);
-
-  background: #292930;
+  width: 100%;
+  padding: 27px 40px 40px 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

@@ -4,12 +4,12 @@ import styles from "./page.module.scss";
 export default function Home() {
   return (
     <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
+      <ul className={styles.description}>
+        <li>
           Get started by editing&nbsp;
           <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
+        </li>
+        <li>
           <a
             href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
             target="_blank"
@@ -25,19 +25,10 @@ export default function Home() {
               priority
             />
           </a>
-        </div>
-      </div>
+        </li>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+        <li></li>
+      </ul>
 
       <div className={styles.grid}>
         <a

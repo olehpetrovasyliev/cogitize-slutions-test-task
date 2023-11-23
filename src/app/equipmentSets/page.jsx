@@ -1,8 +1,11 @@
 import React from "react";
+import styles from "../page.module.scss";
 
 const EquipmentSets = () => {
   return (
-    <p>Извините, эта страница не была включена в задачу моего создателя</p>
+    <main className={styles.main}>
+      <p>Извините, эта страница не была включена в задачу моего создателя</p>
+    </main>
   );
 };
 
