@@ -1,0 +1,63 @@
+.form {
+  border-radius: 8px;
+  background: #303038;
+  width: 592px;
+  height: 680px;
+  padding: 16px;
+}
+
+.nameInputWrapper {
+  border-radius: 8px;
+  background: #292930;
+  padding: 16px 16px 24px 16px;
+  margin-bottom: 15px;
+}
+
+.nameLabel {
+  color: #6b6b7b;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 4px;
+}
+.nameInput {
+  border-radius: 8px;
+  border: 2px solid rgba(245, 245, 245, 0.08);
+  background: #292930;
+  padding: 14px 16px;
+  width: 528px;
+  &::placeholder {
+    color: #f5f5f5;
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+}
+
+.checkboxesWrapper {
+  max-width: 555px;
+  min-height: 467px;
+  border-radius: 8px;
+  background: #292930;
+  margin-bottom: 8px;
+}
+
+.responsibilitiesHeadingLabel {
+  width: 560px;
+  height: 40px;
+  border-radius: 8px 8px 0px 0px;
+  background: #292930;
+  box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.24);
+  padding: 10px 16px;
+  color: #6b6b7b;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+
+.submitBtn {
+  border-radius: 8px;
+  border: 2px solid var(--white-16, rgba(245, 245, 245, 0.16));
+  background: #6764f1;
+  box-shadow: 0px 4px 40px 0px rgba(104, 102, 234, 0.24);
+  padding: 14px 243px;
+}

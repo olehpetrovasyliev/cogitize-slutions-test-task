@@ -31,7 +31,7 @@
   flex-shrink: 0;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   &.active {
     border: 2px solid #6764f1;
   }
@@ -46,12 +46,19 @@
 }
 .tasksNum {
   color: #6b6b7b;
-  //   font-family: TT Smalls;
   font-size: 0.75rem;
   font-weight: 600;
-  // line-height: 18px
 }
 
+.price {
+  color: #efb62b;
+  font-size: 0.75rem;
+  font-weight: 700;
+  & span {
+    color: #6b6b7b;
+    font-weight: 500;
+  }
+}
 .addBtn {
   border-radius: 8px;
   border: 2px solid var(--white-16, rgba(245, 245, 245, 0.16));

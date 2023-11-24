@@ -48,15 +48,21 @@ export default function PositionsLayout({ children }) {
                 >
                   <div>
                     <h2 className={styles.positionName}>{pos.position}</h2>
-                    <h3 className={styles.tasksNum}>{pos.tasks}</h3>
+                    <h3 className={styles.tasksNum}>
+                      {pos.tasks > 0 ? pos.tasks + "заданий" : "от 10 lvl"}
+                    </h3>
                   </div>
+                  <p className={styles.price}>
+                    {"$" + pos.price}
+                    <span>/час</span>
+                  </p>
                 </Link>
               </li>
             );
           })}
         </ul>
         <button className={styles.addBtn}>
-          <Link href="/positions/add-new">Создать новую должность</Link>
+          <Link href="/positions/addNew">Создать новую должность</Link>
         </button>
       </aside>
       {children}
