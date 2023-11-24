@@ -1,0 +1,62 @@
+.positionsList {
+  height: 600px;
+  overflow-y: auto;
+  margin-bottom: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  &::-webkit-scrollbar {
+    width: 5px;
+    border-radius: 10px;
+    color: rgba(245, 245, 245, 0.2);
+    color: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(245, 245, 245, 0.1);
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: rgba(245, 245, 245, 0.1);
+    border-radius: 10px;
+    width: 10px;
+  }
+}
+.position {
+  border-radius: 8px;
+  background: #303038;
+  padding: 16px 18px;
+  width: 296px;
+  height: 80px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &.active {
+    border: 2px solid #6764f1;
+  }
+}
+
+.positionName {
+  color: #f5f5f5;
+  //   font-family: TT Smalls;
+  font-size: 0.875rem;
+  font-weight: 600;
+  // line-height: 20px;
+}
+.tasksNum {
+  color: #6b6b7b;
+  //   font-family: TT Smalls;
+  font-size: 0.75rem;
+  font-weight: 600;
+  // line-height: 18px
+}
+
+.addBtn {
+  border-radius: 8px;
+  border: 2px solid var(--white-16, rgba(245, 245, 245, 0.16));
+  background: #6764f1;
+  padding: 14px 65px;
+  display: block;
+  box-shadow: 0px 4px 40px 0px rgba(104, 102, 234, 0.24);
+}
