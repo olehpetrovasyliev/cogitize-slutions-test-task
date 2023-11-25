@@ -1,11 +1,11 @@
-import { Inter } from "next/font/google";
+import localFont from "@next/font/local";
 import "./globals.scss";
 import styles from "./header.module.scss";
 import NavBar from "./navbar";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const inter = Inter({
+const font = localFont({
   src: [
     {
       path: "../../public/fonts/TTSmall-Thin.ttf",
@@ -43,7 +43,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="ru">
-      <body className={inter.className}>
+      <body className={font.className}>
         <header className={styles.header}>
           <NavBar />
         </header>
