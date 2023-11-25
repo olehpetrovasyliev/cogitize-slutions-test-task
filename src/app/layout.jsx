@@ -1,4 +1,4 @@
-import localFont from "@next/font/local";
+import localFont from "next/font/local";
 import "./globals.scss";
 import styles from "./header.module.scss";
 import NavBar from "./navbar";
@@ -8,28 +8,28 @@ import "react-toastify/dist/ReactToastify.css";
 const font = localFont({
   src: [
     {
-      path: "../../public/fonts/TTSmall-Thin.ttf",
-      weight: 300,
+      path: "../../public/fonts/TTSmalls-Thin.ttf",
+      weight: "300",
     },
     {
-      path: "../../public/fonts/TTSmall-Regular.ttf",
-      weight: 400,
+      path: "../../public/fonts/TTSmalls-Regular.ttf",
+      weight: "400",
     },
     {
-      path: "../../public/fonts/TTSmall-Medium.ttf",
-      weight: 500,
+      path: "../../public/fonts/TTSmalls-Medium.ttf",
+      weight: "500",
     },
     {
-      path: "../../public/fonts/TTSmall-Semibold.ttf",
-      weight: 600,
+      path: "../../public/fonts/TTSmalls-Semibold.ttf",
+      weight: "600",
     },
     {
-      path: "../../public/fonts/TTSmall-Bold.ttf",
-      weight: 700,
+      path: "../../public/fonts/TTSmalls-Bold.ttf",
+      weight: "700",
     },
     {
-      path: "../../public/fonts/TTSmall-ExtraBold.ttf",
-      weight: 800,
+      path: "../../public/fonts/TTSmalls-ExtraBold.ttf",
+      weight: "800",
     },
   ],
 });
