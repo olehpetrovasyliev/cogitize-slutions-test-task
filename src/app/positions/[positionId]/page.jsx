@@ -1,61 +1,79 @@
 "use client";
-import React from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
-import axios from "axios";
+import React, { useEffect, useState } from "react";
 import styles from "../form.module.scss";
+import { get, ref, update } from "firebase/database";
 import { db } from "../../../../firebase";
-import { ref, update } from "firebase/database";
 import { validationSchema } from "../../../../validationSchema/schema";
+import { ErrorMessage, Field, Form, Formik } from "formik";
 
-const PositionDetailsPage = () => {
+const PositionDetailsPage = ({ params }) => {
+  const [positionInitialValues, setPositionInitialValues] = useState({
+    position: "",
+    trading: {
+      sell_products: false,
+      set_prices: false,
+      watch_analytics: false,
+    },
+    production: {
+      buy_materials: false,
+      appoint_employees: false,
+    },
+    showdown: {
+      duel: false,
+      make_claims: false,
+    },
+    management: {
+      appoint_position: false,
+      kick_out: false,
+    },
+  });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const positionSnapshot = await get(
+          ref(db, `positions/${params.positionId}`)
+        );
+
+        if (positionSnapshot.exists()) {
+          const data = positionSnapshot.val();
+          setPositionInitialValues({
+            position: data.position,
+            trading: data.trading,
+            management: data.management,
+            production: data.production,
+            showdown: data.showdown,
+          });
+        } else {
+          console.error(`Position with ID ${params.positionId} not found`);
+        }
+      } catch (error) {
+        console.error("Error fetching position data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
   const handleSubmit = async (values) => {
     try {
-      const positionId = crypto.randomUUID();
-      const getRandomNumber = (min, max) => {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-      };
-      const randomSalary = getRandomNumber(50, 200);
-      const randomTasksNumber = getRandomNumber(0, 50);
-      const updatedData = {
-        ...values,
-        id: positionId,
-        price: randomSalary,
-        tasks: randomTasksNumber,
-      };
+      const positionRef = ref(db, `positions/${params.positionId}`);
+      const positionSnapshot = await get(positionRef);
 
-      const positionRef = ref(db, `positions/${positionId}`);
+      if (!positionSnapshot.exists()) {
+        throw new Error(`Position with ID ${params.positionId} does not exist`);
+      }
 
-      await update(positionRef, updatedData);
+      await update(positionRef, values);
 
-      console.log("Form submitted successfully and database updated!");
+      console.log("Position updated successfully!");
     } catch (error) {
-      console.error("Error submitting form:", error);
+      console.error("Error updating position:", error);
     }
   };
 
   return (
     <Formik
-      initialValues={{
-        position: "",
-        trading: {
-          sell_products: false,
-          set_prices: false,
-          watch_analytics: false,
-        },
-        showdown: {
-          duel: false,
-          make_claims: false,
-        },
-        production: {
-          buy_materials: false,
-          appoint_employees: false,
-        },
-        management: {
-          appoint_position: false,
-          kick_out: false,
-        },
-      }}
+      initialValues={{ ...positionInitialValues }}
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
     >

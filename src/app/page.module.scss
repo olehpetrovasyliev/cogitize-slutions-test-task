@@ -9,15 +9,15 @@
   &::-webkit-scrollbar {
     width: 5px;
     border-radius: 10px;
-    color: rgba(245, 245, 245, 0.2);
+    color: rgba(245, 245, 245, 0.02);
     color: transparent;
   }
   &::-webkit-scrollbar-thumb {
-    background: rgba(245, 245, 245, 0.1);
+    background: rgba(245, 245, 245, 0.01);
     border-radius: 10px;
   }
   &::-webkit-scrollbar-track {
-    background-color: rgba(245, 245, 245, 0.1);
+    background-color: rgba(245, 245, 245, 0.01);
     border-radius: 10px;
     width: 10px;
   }
@@ -31,7 +31,7 @@
   flex-shrink: 0;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   &.active {
     border: 2px solid #6764f1;
   }
@@ -54,11 +54,18 @@
   color: #efb62b;
   font-size: 0.75rem;
   font-weight: 700;
+  margin-bottom: auto;
   & span {
     color: #6b6b7b;
     font-weight: 500;
   }
 }
+.positionMainInfoWrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
 .addBtn {
   border-radius: 8px;
   border: 2px solid var(--white-16, rgba(245, 245, 245, 0.16));
