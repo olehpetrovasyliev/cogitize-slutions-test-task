@@ -20,7 +20,7 @@ const font = localFont({
       weight: "500",
     },
     {
-      path: "../../public/fonts/TTSmalls-Semibold.ttf",
+      path: "../../public/fonts/TTSmalls-SemiBold.ttf",
       weight: "600",
     },
     {
