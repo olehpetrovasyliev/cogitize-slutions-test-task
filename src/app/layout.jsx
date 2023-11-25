@@ -1,40 +1,30 @@
-"use client";
 import { Inter } from "next/font/google";
 import "./globals.scss";
-import Link from "next/link";
 import styles from "./header.module.scss";
-import { usePathname } from "next/navigation";
+import NavBar from "./navbar";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
-const navLinks = [
-  { href: "/hierarchy", text: "Иерархия" },
-  { href: "/positions", text: "Должности" },
-  { href: "/staffList", text: "Список персонала" },
-  { href: "/equipmentSets", text: "Наборы экипировки" },
-];
+export const metadata = {
+  title: "Test task",
+  description: "Test task for Cogitize Solutions",
+  icon: "../../public/vector/vercel.svg",
+};
 
 export default function RootLayout({ children }) {
-  const pathname = usePathname();
-  const navigationLinks = navLinks.map((link, index) => {
-    const isActive = pathname.startsWith(link.href);
-    return (
-      <Link
-        key={index}
-        href={link.href}
-        className={
-          isActive ? `${styles.navLink} ${styles.active}` : styles.navLink
-        }
-      >
-        {link.text}
-      </Link>
-    );
-  });
   return (
     <html lang="ru">
       <body className={inter.className}>
-        <header className={styles.header}>{navigationLinks}</header>
-        {children}
+        <header className={styles.header}>
+          <NavBar />
+        </header>
+        <main>
+          {children}
+
+          <ToastContainer autoClose={2000} />
+        </main>
       </body>
     </html>
   );

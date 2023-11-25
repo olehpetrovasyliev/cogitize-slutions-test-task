@@ -1,7 +1,7 @@
 export default function Home() {
   return (
-    <main>
+    <section>
       <p>Пожалуйста, выберите вкладку, которой хотите воспользоваться</p>
-    </main>
+    </section>
   );
 }

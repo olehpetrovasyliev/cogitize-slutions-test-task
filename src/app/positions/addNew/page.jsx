@@ -5,6 +5,7 @@ import styles from "../form.module.scss";
 import { db } from "../../../../firebase";
 import { ref, update } from "firebase/database";
 import { validationSchema } from "../../../../validationSchema/schema";
+import { toast } from "react-toastify";
 
 const PositionDetailsPage = () => {
   const handleSubmit = async (values) => {
@@ -26,7 +27,7 @@ const PositionDetailsPage = () => {
 
       await update(positionRef, updatedData);
 
-      console.log("Form submitted successfully and database updated!");
+      toast.success("Данные успешно добавлены!");
     } catch (error) {
       console.error("Error submitting form:", error);
     }
@@ -65,7 +66,7 @@ const PositionDetailsPage = () => {
               type="text"
               id="position"
               name="position"
-              placeholder="Новобранец"
+              placeholder="Название должности"
               className={styles.nameInput}
             />
           </label>
