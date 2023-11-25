@@ -39,20 +39,24 @@
   border-radius: 8px;
   background: #292930;
   margin-bottom: 8px;
+
   & label {
     color: #f5f5f5;
     font-size: 0.75rem;
     font-weight: 500;
   }
   & span {
+    display: inline-block;
     color: #6b6b7b;
     font-size: 0.75rem;
     font-weight: 500;
+    margin-bottom: 6px;
   }
 }
 .responsibilitiesWrapper {
   padding: 12px;
   display: flex;
+  gap: 126px;
 }
 .responsibilitiesHeadingLabel {
   width: 560px;
@@ -72,4 +76,32 @@
   background: #6764f1;
   box-shadow: 0px 4px 40px 0px rgba(104, 102, 234, 0.24);
   padding: 14px 243px;
+}
+
+.icon {
+  border-radius: 4px;
+  border: 2px solid rgba(245, 245, 245, 0.08);
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  transition-duration: 250ms;
+}
+.checkbox {
+  appearance: none;
+  margin-left: -8px;
+  &:checked {
+    & + .icon {
+      border-color: #6764f1;
+      background-image: url("../../../public/vector/check.svg");
+    }
+  }
+}
+
+.checkboxWrapper {
+  display: flex;
+  align-items: center;
+  // justify-content: flex-start;
+  text-align: center;
+  gap: 8px;
+  margin-bottom: 10px;
 }

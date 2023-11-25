@@ -1,8 +1,6 @@
 "use client";
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
-import axios from "axios";
 import styles from "../form.module.scss";
 import { db } from "../../../../firebase";
 import { ref, update } from "firebase/database";
@@ -63,14 +61,14 @@ const PositionDetailsPage = () => {
         <div className={styles.nameInputWrapper}>
           <label htmlFor="position" className={styles.nameLabel}>
             Название
+            <Field
+              type="text"
+              id="position"
+              name="position"
+              placeholder="Новобранец"
+              className={styles.nameInput}
+            />
           </label>
-          <Field
-            type="text"
-            id="position"
-            name="position"
-            placeholder="Новобранец"
-            className={styles.nameInput}
-          />
           <ErrorMessage name="position" component="div" />
         </div>
 
@@ -83,79 +81,135 @@ const PositionDetailsPage = () => {
             <div>
               <span>Торговля</span>
               <div>
-                <Field
-                  type="checkbox"
-                  id="sell_products"
-                  name="trading.sell_products"
-                />
-                <label htmlFor="sell_products">Продавать продукт</label>
+                <label
+                  htmlFor="sell_products"
+                  className={styles.checkboxWrapper}
+                >
+                  {" "}
+                  <Field
+                    type="checkbox"
+                    id="sell_products"
+                    name="trading.sell_products"
+                    className={styles.checkbox}
+                  />
+                  <span className={styles.icon}></span>
+                  Продавать продукт
+                </label>
               </div>
               <div>
-                <Field
-                  type="checkbox"
-                  id="set_prices"
-                  name="trading.set_prices"
-                />
-                <label htmlFor="set_prices">Выставлять цены</label>
+                <label htmlFor="set_prices" className={styles.checkboxWrapper}>
+                  <Field
+                    type="checkbox"
+                    id="set_prices"
+                    name="trading.set_prices"
+                    className={styles.checkbox}
+                  />
+                  <span className={styles.icon}></span>
+                  Выставлять цены
+                </label>
               </div>
               <div>
-                <Field
-                  type="checkbox"
-                  id="watch_analytics"
-                  name="trading.watch_analytics"
-                />
-                <label htmlFor="watch_analytics">Смотреть аналитику</label>
+                <label
+                  htmlFor="watch_analytics"
+                  className={styles.checkboxWrapper}
+                >
+                  <Field
+                    type="checkbox"
+                    id="watch_analytics"
+                    name="trading.watch_analytics"
+                    className={styles.checkbox}
+                  />
+                  <span className={styles.icon}></span>
+                  Смотреть аналитику
+                </label>
               </div>
 
               <span>Разборки</span>
               <div>
-                <Field type="checkbox" id="duel" name="showdown.duel" />
-                <label htmlFor="duel">Дуель</label>
+                <label htmlFor="duel" className={styles.checkboxWrapper}>
+                  <Field
+                    type="checkbox"
+                    id="duel"
+                    name="showdown.duel"
+                    className={styles.checkbox}
+                  />
+                  <span className={styles.icon}></span>
+                  Дуель
+                </label>
               </div>
               <div>
-                <Field
-                  type="checkbox"
-                  id="make_claims"
-                  name="showdown.make_claims"
-                />
-                <label htmlFor="make_claims">Выставлять претензии</label>
+                <label htmlFor="make_claims" className={styles.checkboxWrapper}>
+                  <Field
+                    type="checkbox"
+                    id="make_claims"
+                    name="showdown.make_claims"
+                    className={styles.checkbox}
+                  />
+                  <span className={styles.icon}></span>
+                  Выставлять претензии
+                </label>
               </div>
             </div>
             <div>
               <span>Производство</span>
               <div>
-                <Field
-                  type="checkbox"
-                  id="buy_materials"
-                  name="production.buy_materials"
-                />
-                <label htmlFor="buy_materials">Закупать сырье</label>
+                <label
+                  htmlFor="buy_materials"
+                  className={styles.checkboxWrapper}
+                >
+                  <Field
+                    type="checkbox"
+                    id="buy_materials"
+                    name="production.buy_materials"
+                    className={styles.checkbox}
+                  />
+                  <span className={styles.icon}></span>
+                  Закупать сырье
+                </label>
               </div>
               <div>
-                <Field
-                  type="checkbox"
-                  id="appoint_employees"
-                  name="production.appoint_employees"
-                />
-                <label htmlFor="appoint_employees">Назначать рабочих</label>
+                <label
+                  htmlFor="appoint_employees"
+                  className={styles.checkboxWrapper}
+                >
+                  <Field
+                    type="checkbox"
+                    id="appoint_employees"
+                    name="production.appoint_employees"
+                    className={styles.checkbox}
+                  />
+                  <span className={styles.icon}></span>
+                  Назначать рабочих
+                </label>
               </div>
 
               <span>Управление</span>
               <div>
-                <Field
-                  type="checkbox"
-                  id="appoint_position"
-                  name="management.appoint_position"
-                />
-                <label htmlFor="appoint_position">Назначать должности</label>
+                <label
+                  htmlFor="appoint_position"
+                  className={styles.checkboxWrapper}
+                >
+                  <Field
+                    type="checkbox"
+                    id="appoint_position"
+                    name="management.appoint_position"
+                    className={styles.checkbox}
+                  />
+                  <span className={styles.icon}></span>
+                  Назначать должности
+                </label>
               </div>
               <div>
-                <Field
-                  type="checkbox"
-                  id="kick_out"
-                  name="management.kick_out"
-                />
-                <label htmlFor="kick_out">Выгонять из банды</label>
+                <label htmlFor="kick_out" className={styles.checkboxWrapper}>
+                  <Field
+                    type="checkbox"
+                    id="kick_out"
+                    name="management.kick_out"
+                    className={styles.checkbox}
+                  />
+                  <span className={styles.icon}></span>
+                  Выгонять из банды
+                </label>
               </div>
             </div>
           </div>

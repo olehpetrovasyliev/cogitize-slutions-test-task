@@ -7,26 +7,7 @@ import { validationSchema } from "../../../../validationSchema/schema";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 
 const PositionDetailsPage = ({ params }) => {
-  const [positionInitialValues, setPositionInitialValues] = useState({
-    position: "",
-    trading: {
-      sell_products: false,
-      set_prices: false,
-      watch_analytics: false,
-    },
-    production: {
-      buy_materials: false,
-      appoint_employees: false,
-    },
-    showdown: {
-      duel: false,
-      make_claims: false,
-    },
-    management: {
-      appoint_position: false,
-      kick_out: false,
-    },
-  });
+  const [positionInitialValues, setPositionInitialValues] = useState({});
 
   useEffect(() => {
     const fetchData = async () => {
